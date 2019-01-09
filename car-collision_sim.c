@@ -11,8 +11,8 @@ float position(float time) {
   float x = Xo + Vo*time - (a*pow(time, 2))/2;
   return x;
 }
-void w_plot(float x, float y, FILE *p) {
-  fprintf(p, "%f %f\n", y, x);
+void w_plot(float y, float x, FILE *p) {
+  fprintf(p, "%f %f\n", x, y);
 }
 void plot() {
  system("gnuplot -p -e \"plot 'gnuplot.txt'\"");
