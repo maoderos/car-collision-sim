@@ -35,14 +35,16 @@ int main () {
   FILE *p = fopen("gnuplot.txt", "w");
   for (t = 0; t <= tmax; ) {
     x_t = position(t);
-    w_plot(x_t, t, p);
-    t = t + delta_t;
     if (x_t >= dist) {
-      printf("\nCOLISSION");
+      printf("\nCOLISSION\n");
+      x_t = dist;
+      w_plot(x_t, t, p);
       fclose(p);
       plot();
       break;
     }
+    w_plot(x_t, t, p);
+    t = t + delta_t;
   }
   if (x_t < dist) {
     float dist_missing = dist - x_t;
@@ -50,5 +52,5 @@ int main () {
     fclose(p);
     plot();
   }
-  return 0;
+return 0;
 }
